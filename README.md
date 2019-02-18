@@ -1,6 +1,8 @@
 # make_project_waethercubeone
 Display weather information on an LCD display  build in a cube.
 
+![weathercubeone2](https://user-images.githubusercontent.com/47274144/52946335-169b2500-3374-11e9-819a-2589ca2f38a6.png)
+
 # Introduction
 WeatherCubeOne2 is the next development level based on weathercubeone1.
 Completely rewritten using MQTT. MQTT is a great Technology - the new solution is much simpler then the previous - No need for complex JavaObjects / Inline Java / httpjobs as subscribe and publish messages handles the flow of data.
@@ -22,6 +24,9 @@ The source code is well documented with hints on how to install MQTT and use wit
 * Example Google Line Charts Temperature, Airpressure, Humidity updated via B4J server using MQTT
 * Using TinkerForge Brick MQTT Proxy, B4X MQTT Client Library, Domoticz MQTT
 
+![weathercubeone2processes](https://user-images.githubusercontent.com/47274144/52946342-1733bb80-3374-11e9-8024-c1976c2f6b6e.png)
+![weathercubeone2b4jgooglechart](https://user-images.githubusercontent.com/47274144/52946339-169b2500-3374-11e9-8309-a5fb127e4cfb.png)
+
 ## Hardware
 * Raspberry Pi 2 Model B v1.1
 * TinkerForge Master Brick (connected to the Raspberry Pi), Bricklets Temperature, Barometer, Humidity and LCD20x4
@@ -37,6 +42,10 @@ The source code is well documented with hints on how to install MQTT and use wit
 * TinkerForge Brick MQTT Proxy
 * B4X jMQTT Client Library
 * Domoticz MQTT Broker
+
+![weathercubeone2b4jclient](https://user-images.githubusercontent.com/47274144/52946337-169b2500-3374-11e9-81ab-63e612bc0ca4.png)
+![weathercubeone2b4jmqttclient](https://user-images.githubusercontent.com/47274144/52946340-1733bb80-3374-11e9-990f-c399930004a3.png)
+![weathercubeone2lazclient](https://user-images.githubusercontent.com/47274144/52946341-1733bb80-3374-11e9-873b-1bb33d18456c.png)
 
 ## Additional Notes for the WeatherCubeOne
 
