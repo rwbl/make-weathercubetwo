@@ -99,3 +99,5 @@ script:///home/pi/weathercubeone/script_copyright
 login as: pi
 $mosquitto_sub -h weathercubeone-ip-address -t weathercubeone/#
 
+## Soure Code
+The source code and required libraries can be found in archive __weathercubeone2.zip__. The code is well documented.
