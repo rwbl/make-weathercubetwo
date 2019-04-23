@@ -38,7 +38,7 @@ The source code is well documented with hints on how to install MQTT and use wit
 * Domoticz Home Automation Server
 * Software B4J Application WeatherCubeOne2 & WeatherCubeOneGoogleChart
 
-## Java
+## Java License
 The application has been created for **personal use**  only. If planned for commercial use, ensure to comply to the [Oracle JDK License Agreement](https://www.oracle.com/technetwork/java/javase/terms/license/javase-license.html). 
 
 ## MQTT Components
