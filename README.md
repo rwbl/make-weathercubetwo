@@ -4,13 +4,13 @@ This make project displays weather information on a Tinkerforge LCD 20x4 display
 ![weathercubeone2](https://user-images.githubusercontent.com/47274144/52946335-169b2500-3374-11e9-819a-2589ca2f38a6.png)
 
 # Introduction
-WeatherCubeTwo (**the Cube**) is the next development level based on WeatherCubeOne.
-Completely rewritten using MQTT - the new solution is much simpler then the previous - No need for complex JavaObjects / Inline Java / HTTPJobs as subscribe and publish messages handles the flow of data.
-It also enables to build UI clients, e.g. for B4J and B4A with almost the same code.
-The Tinkerforge MQTT topics published, are converted and displayed on the Tinkerforge LCD20x4 display and published to the Domoticz Server.
+**WeatherCubeTwo** is the next development level based on **WeatherCubeOne**.  
+Completely rewritten using MQTT - the new solution is much simpler then the previous - No need for complex JavaObjects / Inline Java / HTTPJobs as subscribe and publish messages handles the flow of data.  
+It also enables to build UI clients, e.g. for B4J and B4A with almost the same code.  
+The Tinkerforge MQTT topics published, are converted and displayed on the Tinkerforge LCD20x4 display and published to the Domoticz Server.  
 
-For more information, read the detailed description, the readme.txt or the project source code.
-The source code is well documented with hints on how to install MQTT and use with B4J, Lazarus or any other MQTT clients.
+For more information, read the detailed description, the readme.txt or the project source code.  
+The source code is well documented with hints on how to install MQTT and use with B4J, Lazarus or any other MQTT clients.  
 
 **Note**
 The project has been renamed to **WeatherCubeTwo** but this documentation still uses project name _WeatherCubeOne2_.
@@ -42,7 +42,7 @@ The project has been renamed to **WeatherCubeTwo** but this documentation still 
 * Software B4J Application WeatherCubeOne2 & WeatherCubeOneGoogleChart
 
 ## Java License
-The application has been created for **personal use**  only. If planned for commercial use, ensure to comply to the [Oracle JDK License Agreement](https://www.oracle.com/technetwork/java/javase/terms/license/javase-license.html). 
+The application has been created for **personal use**  only.  
 
 ## MQTT Components
 * Tinkerforge Brick MQTT Proxy
@@ -56,16 +56,22 @@ The application has been created for **personal use**  only. If planned for comm
 ## Notes
 
 ### MQTT 
-As MQTT is used, it is possible to subscribe or publish to the Tinkerforge Master Brick or Bricklets or Domoticz topics. 
-The payload has to be parsed with JSON. See the examples B4J & Lazarus MQTT client.
-To obtain information send from the Tinkerforge Bricklets subscribe to the Topics: weathercubeone/airpressure, weathercubeone/timestamp, weathercubeone/temperature or weathercubeone/humidity.
-To trigger an action on the WeatherCubeOne, following Topics can be published: weathercubeone/backlighton, weathercubeone/backlightoff, weathercubeone/clear, weathercubeone/copyright, weathercubeone/close, weathercubeone/shutdown.
+As MQTT is used, it is possible to subscribe or publish to the Tinkerforge Master Brick or Bricklets or Domoticz topics.   
+The payload has to be parsed with JSON. See the examples B4J & Lazarus MQTT client.  
+To obtain information send from the Tinkerforge Bricklets subscribe to the Topics:  
+```
+weathercubeone/airpressure, weathercubeone/timestamp, weathercubeone/temperature or weathercubeone/humidity.
+```
+To trigger an action on the WeatherCubeOne, following Topics can be published:
+```
+weathercubeone/backlighton, weathercubeone/backlightoff, weathercubeone/clear, weathercubeone/copyright, weathercubeone/close, weathercubeone/shutdown.
+```
 Any MQTT can be used to do so.
-To note is that there are additional topics possible to direct subscribe or publish to the TinkerForge Master Brick or Bricklets. 
+To note is that there are additional topics possible to direct subscribe or publish to the TinkerForge Master Brick or Bricklets.  
 The same applies for Domoticz. To use these JSON is required. To read more see the references listed below.
 
 ### Autostart Tinkerforge MQTT Broker and B4J weathercubeone jar application
-Autostart on the Raspberry Pi the Tinkerforge MQTT Broker and B4J weathercubeone jar application
+Autostart on the Raspberry Pi the Tinkerforge MQTT Broker and B4J weathercubeone.jar application
 Add to /etc/rc.local:
 ```
   #TinkerForge Brick MQTT Proxy
@@ -86,24 +92,33 @@ Add to /etc/rc.local:
 ### Domoticz Switch showing Copyright
 #### Create an executable script
 login as: pi
+```
 cd /home/pi/weathercubeone
 sudo nano script_copyright
+```
 Content of the Script:
-	#!/bin/bash
-	# Script to show copyright message on weathercubeone
-	echo "WeatherCubeOne show copyright..."
-	mosquitto_pub -h localhost -t weathercubeone/copyright -m ""
+```
+#!/bin/bash
+# Script to show copyright message on weathercubeone
+echo "WeatherCubeOne show copyright..."
+mosquitto_pub -h localhost -t weathercubeone/copyright -m ""
+```
 Make the Script executable.
+```
 sudo chmod 755 script_copyright
+```
 
 #### Create a Switch in Domoticz
-Create a new Virtual Switch
-Edit and define as action:
+To show the copyright on the LCD display, create a new Virtual Switch (Dummy hardware).
+Edit the Switch widget and define as action:
+```
 script:///home/pi/weathercubeone/script_copyright
+```
 
 #### Subscribe to all Topics
 login as: pi
 $mosquitto_sub -h weathercubeone-ip-address -t weathercubeone/#
 
-## Soure Code
-The source code and required libraries can be found in archive __weathercubeone2.zip__. The code is well documented.
+## Source Code
+The source code and required libraries can be found in archive __weathercubeone2.zip__.  
+The code is well documented.
